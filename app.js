@@ -11,11 +11,11 @@ mongoose.connect(config.database);
 
 // On connection
 mongoose.connection.on('connected', () => {
-  console.log("connected to database" +config.database)
+  console.log("connected to database " +config.database)
 })
 // On error
 mongoose.connection.on('error', () => {
-  console.log("error to database" +config.database)
+  console.log("error to database " +config.database)
 })
 
 const app = express();
@@ -33,6 +33,12 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 //Body Parser Middleware
 app.use(bodyParser.json());
+
+// Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./config/passport')(passport);
 
 app.use('/users', users);
 

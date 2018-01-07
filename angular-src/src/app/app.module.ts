@@ -18,12 +18,16 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AuthGuard } from './guards/auth.guard';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 import { OfferedServicesComponent } from './components/offered-services/offered-services.component';
+import { ContactComponent } from './components/contact/contact.component';
+
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'testimonials', component: TestimonialsComponent},
+  {path: 'services-offered', component: OfferedServicesComponent},
+  {path: 'contact', component: ContactComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
   {path: 'profile', component: ProfileComponent, canActivate:[AuthGuard]}
 ]
@@ -38,7 +42,8 @@ const appRoutes: Routes = [
     DashboardComponent,
     ProfileComponent,
     TestimonialsComponent,
-    OfferedServicesComponent
+    OfferedServicesComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
